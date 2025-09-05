@@ -1,16 +1,16 @@
 name: Update breakout
 
-
 on:
   schedule:
-    - cron: "0 */24 * * *"
+    # Run once per day at 00:00 UTC
+    - cron: "0 0 * * *"
   workflow_dispatch:
-      
+
 jobs:
   update_breakout:
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
